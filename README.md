@@ -3,12 +3,14 @@
 
 ## Usage 
 
-+-------------+
-| RaspberryPI |    +-------------+    +-------------+ 
-|             |    |  Google     |    |  Phone /    |
-| home_temp_  +--->|  Firestore  +--->|  WebBrowser |
-|     sensor  |    +-------------+    +-------------+
-+-------------+
+<!-- language: lang-none -->
+
+  +-------------+
+  | RaspberryPI |    +-------------+    +-------------+ 
+  |             |    |  Google     |    |  Phone /    |
+  | home_temp_  +--->|  Firestore  +--->|  WebBrowser |
+  |     sensor  |    +-------------+    +-------------+
+  +-------------+
 
 
 ## Integration / Instalation
