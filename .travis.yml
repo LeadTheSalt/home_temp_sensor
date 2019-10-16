@@ -5,14 +5,13 @@ python:
 before_install: 
   - mkdir dist
 install: 
-  - python3 -m pip install --user --upgrade setuptools wheel
+  - python3 -m pip install setuptools wheel
 script: 
   - python3 setup.py sdist bdist_wheel
 
 deploy:
   provider: releases
-  api_key: 
-    secure: ""
+  api_key: $GITHUB_OAUTH_TOKEN
   file: "dist/home_temp_sensor-0.0.1.tar.gz"
   overwrite: true
 
