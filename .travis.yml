@@ -12,7 +12,6 @@ script:
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
-  file: "dist/home_temp_sensor-0.0.1-py3-none-any.whl"
   overwrite: true
 
 notifications:
