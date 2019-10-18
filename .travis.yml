@@ -2,17 +2,11 @@ language: python
 python:
   - "3.5"
 
-before_install: 
-  - mkdir dist
-install: 
-  - python3 -m pip install setuptools wheel
-script: 
-  - python3 setup.py sdist bdist_wheel
 
 deploy:
-  provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
-  overwrite: true
+  provider: pypi
+  user: "leadthesalt"
+  password: "$PYPI_PASSWORD" # not the best way but ... not critical to me 
 
 notifications:
   email: false
