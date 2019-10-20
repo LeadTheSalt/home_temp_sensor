@@ -7,12 +7,18 @@ install:
   - pip3 install -r requirements.txt
   - pip3 install .
 
-script: pytest home_temp_sensor/tests.py
+script: pytest one_home_sensor/tests.py
+
+
+
+
 
 deploy:
   provider: pypi
   user: "__token__"
-  password: "$PIPI_TOKEN_PASS" # not the best way but ... not critical to me 
+  password: "$PIPI_TOKEN_PASS" 
+  on:
+    tags: true
 
 notifications:
   email: false

@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="home_temp_sensor",
-    version='0.0.3',
+    name="one_home_sensor",
+    version='0.0.1',
     author="LeadTheSalt",
     author_email="leadthesalt.soc@gmail.com",
-    description="My home tempearture sensore on a RaspberryPi",
+    description="My home tempearture sensor for my RaspberryPi",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/leadthesalt/home_temp_sensor",
+    url="https://github.com/leadthesalt/one_home_sensor",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/LeadTheSalt/home_temp_sensor.svg?branch=master)](https://travis-ci.org/LeadTheSalt/home_temp_sensor)
-# Home Temperature Sensor 
+[![Build Status](https://travis-ci.org/LeadTheSalt/one_home_sensor.svg?branch=master)](https://travis-ci.org/LeadTheSalt/one_home_sensor)
+# One Home Sensor
 
 ## Usage 
 
@@ -8,7 +8,7 @@
   +-------------+
   | RaspberryPI |    +-------------+    +-------------+ 
   |             |    |  Google     |    |  Phone /    |
-  | home_temp_  +--->|  Firestore  +--->|  WebBrowser |
+  |  one_home_    +--->|  Firestore  +--->|  WebBrowser |
   |     sensor  |    +-------------+    +-------------+
   +-------------+
 ```
