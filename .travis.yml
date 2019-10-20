@@ -6,7 +6,7 @@ python:
 deploy:
   provider: pypi
   user: "__token__"
-  password: "$PIPI_TOKEN_PASS" # not the best way but ... not critical to me 
+  password: $PIPI_TOKEN_PASS # not the best way but ... not critical to me 
 
 notifications:
   email: false
