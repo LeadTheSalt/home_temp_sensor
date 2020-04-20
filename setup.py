@@ -18,5 +18,10 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    install_requires=[
+        'smbus2',
+        'i2cdevice',
+        'pymongo[snappy,gssapi,srv,tls]'
+    ],
     python_requires='>=3.5',
 )

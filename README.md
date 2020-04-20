@@ -3,17 +3,42 @@
 
 ## Usage 
 
-
 ```
   +-------------+
   | RaspberryPI |    +-------------+    +-------------+ 
-  |             |    |  Google     |    |  Phone /    |
-  |  one_home_    +--->|  Firestore  +--->|  WebBrowser |
+  |             |    |  MongoDB    |    |  Phone /    |
+  |  one_home_  +--->|  Atlas      +--->|  WebBrowser |
   |     sensor  |    +-------------+    +-------------+
   +-------------+
 ```
 
 ## Integration / Instalation
+This programe is created and only used/tested/supported in python3. These commande should solve all dificulties. 
+
+```
+sudo apt-get update
+sudo apt-get install python3-setuptools python3-dev python3-pip i2c-tools
+sudo python3 setup.py install 
+python3 -m pip install 'pymongo[snappy,gssapi,srv,tls]'
+```
+1. Create cluster on MongoDB Atlas
+2. Create connection autorization and user 
+3. Create configuration file (see next section)
+4. Enable  I2C in raspi-config (5 then P5).
+5. Add user to group "i2c" (sudo usermod -a -G i2c leadthesalt)
+
+## Configuration file 
+```
+[MongoDBAtlasConnection]
+username = # username set for MongoDB
+password = # password set for MongoDB
+clusterfqdn = # fqdn to MongoDB server 
+
+```
+
 
 ## Documentation 
 https://github.com/pimoroni/bme280-python
+https://github.com/pimoroni/skywriter-hat/issues/4
+https://learn.pimoroni.com/related-products/adafruit-mpl3115a2-i2c-barometric-pressure-altitude-temperature-sensor
+https://docs.mongodb.com/ 

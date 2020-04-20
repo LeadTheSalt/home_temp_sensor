@@ -2,5 +2,6 @@ build
 dist
 *.egg-info
 .pytest_cache
-resources
 */__pycache__
+*.pyc
+onehomesensor.ini

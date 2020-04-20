@@ -1,7 +1,6 @@
 language: python
 python:
   - "3.5"
- 
 
 install:
   - pip3 install -r requirements.txt
@@ -10,13 +9,10 @@ install:
 script: pytest one_home_sensor/tests.py
 
 
-
-
-
 deploy:
   provider: pypi
   user: "__token__"
-  password: "$PIPI_TOKEN_PASS" 
+  password: "$PyPI_TOKEN_PASS" 
   on:
     tags: true
 
