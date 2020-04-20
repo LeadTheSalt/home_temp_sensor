@@ -21,7 +21,7 @@ setuptools.setup(
     install_requires=[
         'smbus2',
         'i2cdevice',
-        'pymongo[snappy,gssapi,srv,tls]'
+        'pymongo[srv,tls]'
     ],
     python_requires='>=3.5',
 )
