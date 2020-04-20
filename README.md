@@ -43,7 +43,7 @@ clusterfqdn = # fqdn to MongoDB server
 ```
 
 ## Documentations 
-https://github.com/pimoroni/bme280-python
-https://github.com/pimoroni/skywriter-hat/issues/4
-https://learn.pimoroni.com/related-products/adafruit-mpl3115a2-i2c-barometric-pressure-altitude-temperature-sensor
-https://docs.mongodb.com/ 
+https://github.com/pimoroni/bme280-python  
+https://github.com/pimoroni/skywriter-hat/issues/4  
+https://learn.pimoroni.com/related-products/adafruit-mpl3115a2-i2c-barometric-pressure-altitude-temperature-sensor  
+https://docs.mongodb.com/  
