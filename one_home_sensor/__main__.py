@@ -54,7 +54,6 @@ if __name__ == '__main__':
                 mdb_pswd = Config.get('MongoDBAtlasConnection', 'password')
                 mdb_clus = Config.get('MongoDBAtlasConnection', 'clusterfqdn')
                 mongodb_con = "mongodb+srv://{}:{}@{}/test?retryWrites=true&w=majority".format(mdb_name,mdb_pswd,mdb_clus)
-                print(mongodb_con)
         except Exception as e:
             raise Exception("Configuration file invalide : {}".format(e)) 
 

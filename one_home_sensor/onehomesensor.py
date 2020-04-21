@@ -18,9 +18,9 @@ class OneHomeSensor:
         client = MongoClient(self.mongodb_con)
         db = client.onehomesensor
         readings = db['readings_'+self.sensor_instance_name]
-        time = str(datetime.now().timestamp()).split(".")[0]
+        time = int(datetime.now().timestamp())
         readings.insert_one({
-            'ti' : time,
+            'ti' : str(time),
             'te': "{:05.2f}".format(temperature),
             'pr': "{:05.2f}".format(pressure),
             'hu': "{:05.2f}".format(humidity),
