@@ -4,7 +4,7 @@ try:
     from smbus2 import SMBus
 except ImportError:
     from smbus import SMBus
-from libs.bme280 import BME280
+from .libs.bme280 import BME280
 from pymongo import MongoClient
 
 

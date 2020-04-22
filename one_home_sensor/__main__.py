@@ -1,4 +1,4 @@
-import onehomesensor
+from .onehomesensor import OneHomeSensor
 import argparse
 import configparser
 import os
@@ -45,19 +45,19 @@ if __name__ == '__main__':
     mongodb_con = ""
     Config = configparser.ConfigParser()
     config_file = running_args.config_file
-    if path.exists(config_file):
+    if path.exists(config_file) and not running_args.print_only:
         Config.read(config_file)
-        # get mandatory options 
         try:
-            if not running_args.print_only:
-                mdb_name = Config.get('MongoDBAtlasConnection', 'username')
-                mdb_pswd = Config.get('MongoDBAtlasConnection', 'password')
-                mdb_clus = Config.get('MongoDBAtlasConnection', 'clusterfqdn')
-                mongodb_con = "mongodb+srv://{}:{}@{}/test?retryWrites=true&w=majority".format(mdb_name,mdb_pswd,mdb_clus)
+            mdb_name = Config.get('MongoDBAtlasConnection', 'username')
+            mdb_pswd = Config.get('MongoDBAtlasConnection', 'password')
+            mdb_clus = Config.get('MongoDBAtlasConnection', 'clusterfqdn')
+            mongodb_con = "mongodb+srv://{}:{}@{}/test?retryWrites=true&w=majority".format(mdb_name,mdb_pswd,mdb_clus)
         except Exception as e:
             raise Exception("Configuration file invalide : {}".format(e)) 
+    elif not path.exists(config_file) and not running_args.print_only:
+        raise Exception("Must provide a valide configuration file")
 
 
     # Run the app     
-    MyApp = onehomesensor.OneHomeSensor(running_args,mongodb_con)
+    MyApp = OneHomeSensor(running_args,mongodb_con)
     MyApp.run()
