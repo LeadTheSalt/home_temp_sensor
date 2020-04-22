@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="one_home_sensor",
-    version='0.1.0',
+    version='0.1.3',
     author="LeadTheSalt",
     author_email="leadthesalt.soc@gmail.com",
     description="My home tempearture sensor for my RaspberryPi",
