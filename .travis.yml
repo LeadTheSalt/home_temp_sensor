@@ -11,8 +11,8 @@ deploy:
   provider: pypi
   user: "__token__"
   password: "$PyPI_TOKEN_PASS" 
-  on:
-    tags: true
+  # on:
+  #   tags: true
 
 notifications:
   email: false
