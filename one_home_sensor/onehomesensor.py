@@ -1,5 +1,6 @@
 import time
 from datetime import datetime
+import statistics
 try:
     from smbus2 import SMBus
 except ImportError:
@@ -11,8 +12,10 @@ from pymongo import MongoClient
 class OneHomeSensor:
     def __init__(self, running_args,mongodb_con):
         self.print_only = running_args.print_only
+        self.readings = int(running_args.readings)
         self.mongodb_con = mongodb_con
         self.sensor_instance_name = running_args.sensor_name
+        self.waitetime = float(running_args.waitetime)
 
     def push_to_mongodb(self,temperature,pressure,humidity):
         client = MongoClient(self.mongodb_con)
@@ -31,11 +34,22 @@ class OneHomeSensor:
         # Initialise the BME280
         bus = SMBus(1)
         bme280 = BME280(i2c_dev=bus)
+        temperatures = []
+        pressures = []
+        humiditys = []
         # Read sensors 
-        temperature = bme280.get_temperature()
-        time.sleep(0.5)
-        pressure = bme280.get_pressure()
-        humidity = bme280.get_humidity()
+        for i in range(self.readings):
+            time.sleep(self.waitetime) # initialisation take a little time from what I hav tested
+            temperatures.append(bme280.get_temperature())
+            pressures.append(bme280.get_pressure())
+            humiditys.append(bme280.get_humidity())
+        if self.readings > 5: # extract extrem values from the readings
+            temperatures = sorted(temperatures)[1:-1]
+            pressures = sorted(pressures)[1:-1]
+            humiditys = sorted(humiditys)[1:-1]
+        temperature = statistics.mean(temperatures)
+        pressure = statistics.mean(pressures)
+        humidity = statistics.mean(humiditys)
 
         # Output sensors Data 
         if self.print_only:

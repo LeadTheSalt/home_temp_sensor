@@ -38,6 +38,16 @@ if __name__ == '__main__':
         default=platform.node(),
         help='Name of this sensor (default : hostname)'
     )   
+    parser.add_argument(
+        '-r', '--readings',
+        default=10,
+        help='Number of readings to average (default 10)'
+    )  
+    parser.add_argument(
+        '-w', '--waitetime',
+        default=0.3,
+        help='Seconds to wait between two readings (default 0.3)'
+    )  
     running_args = parser.parse_args()
     
 
