@@ -43,6 +43,8 @@ username = # username set for MongoDB
 password = # password set for MongoDB
 clusterfqdn = # fqdn to MongoDB server 
 
+[Correction]
+temp=-1
 ```
 
 ## Documentations 

@@ -10,12 +10,13 @@ from pymongo import MongoClient
 
 
 class OneHomeSensor:
-    def __init__(self, running_args,mongodb_con):
+    def __init__(self, running_args,mongodb_con,corrections):
         self.print_only = running_args.print_only
         self.readings = int(running_args.readings)
         self.mongodb_con = mongodb_con
         self.sensor_instance_name = running_args.sensor_name
         self.waitetime = float(running_args.waitetime)
+        self.tempCorrection = corrections['temp']
 
     def push_to_mongodb(self,temperature,pressure,humidity):
         client = MongoClient(self.mongodb_con)
@@ -47,7 +48,7 @@ class OneHomeSensor:
             temperatures = sorted(temperatures)[1:-1]
             pressures = sorted(pressures)[1:-1]
             humiditys = sorted(humiditys)[1:-1]
-        temperature = statistics.mean(temperatures)
+        temperature = statistics.mean(temperatures) + self.tempCorrection
         pressure = statistics.mean(pressures)
         humidity = statistics.mean(humiditys)
 
