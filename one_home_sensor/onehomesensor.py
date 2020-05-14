@@ -16,7 +16,7 @@ class OneHomeSensor:
         self.mongodb_con = mongodb_con
         self.sensor_instance_name = running_args.sensor_name
         self.waitetime = float(running_args.waitetime)
-        self.tempCorrection = corrections['temp']
+        self.tempCorrection = corrections.get('temp',0)
 
     def push_to_mongodb(self,temperature,pressure,humidity):
         client = MongoClient(self.mongodb_con)
